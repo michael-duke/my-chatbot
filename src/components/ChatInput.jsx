@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
-function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
+function ChatInput({ chatMessages, setChatMessages, isLoading, setIsLoading }) {
   const [message, setMessage] = useState("");
 
   function saveInputText(event) {
@@ -18,6 +18,17 @@ function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
       console.log("Cannot send empty message!");
       return;
     }
+
+    // Define the new persona here
+    const systemInstruction = `You are Friday Core, a Staff Software Engineer and mentor. 
+    You provide guidance for a developer building with React 19. 
+    Your tone is professional, technical, and encouraging.
+    
+    When providing code:
+    1. Use React 19 patterns (e.g., simplified refs, modern 'use' API where applicable).
+    2. Explain the architectural choice (e.g., 'Using a custom hook to decouple DOM logic from UI').
+    3. Focus on production-ready, clean code to avoid technical debt.`;
+
     setMessage("");
     setIsLoading(true);
 
@@ -32,6 +43,11 @@ function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
 
     try {
       // const response = await Chatbot.getResponseAsync(message);
+      const history = chatMessages.map((msg) => ({
+        role: msg.sender === "user" ? "user" : "assistant",
+        content: msg.message,
+      }));
+
       const response = await fetch(
         "https://router.huggingface.co/v1/chat/completions",
         {
@@ -45,9 +61,9 @@ function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
             messages: [
               {
                 role: "system",
-                content: `You are a witty, professional Senior Software Engineer mentor. 
-                        Give concise, helpful advice with a touch of developer humor.`,
+                content: systemInstruction,
               },
+              ...history,
               { role: "user", content: userMessage },
             ],
             max_tokens: 500,
