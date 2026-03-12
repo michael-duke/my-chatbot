@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 body {
   font-family: Arial, sans-serif;
@@ -89,6 +90,11 @@ body {
   padding: 15px 20px;
   border-radius: 10px;
   max-width: 300px;
+  color: #333;
+}
+
+.chat-message-robot .chat-message-text {
+  max-width: 500px; /* Gives Friday Core more room to explain */
 }
 
 .chat-message-profile {
@@ -99,8 +105,55 @@ body {
 .chat-loading-gif {
   height: 40px;
 }
+
 .welcome-message {
   color: #888;
   text-align: center;
   flex-grow: 1;
+}
+
+.markdown-content {
+  line-height: 1.6;
+  font-family: sans-serif;
+}
+
+.markdown-content p:first-child {
+  margin-top: 0;
+}
+
+.markdown-content p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content pre {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 10px 0;
+  scrollbar-width: none;
+}
+
+.markdown-content code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }

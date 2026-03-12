@@ -1,5 +1,5 @@
-import React from "react";
 import dayjs from "dayjs";
+import ReactMarkdown from "react-markdown";
 
 function ChatMessage({ message, sender, timestamp }) {
   const isRobot = sender.includes("robot");
@@ -12,7 +12,9 @@ function ChatMessage({ message, sender, timestamp }) {
       <div className="chat-message-content">
         {/* If message exists, show text. Otherwise, show the spinner! */}
         {message ? (
-          <span className="chat-message-text">{message}</span>
+          <div className="chat-message-text markdown-content">
+            <ReactMarkdown>{message}</ReactMarkdown>
+          </div>
         ) : (
           <img className="chat-loading-gif" src="./loading-spinner.gif" />
         )}
