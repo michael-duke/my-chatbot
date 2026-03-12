@@ -152,6 +152,27 @@ body {
   margin-bottom: 1rem;
 }
 
+.markdown-content ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content li::marker {
+  color: rgb(25, 135, 84);
+}
 .markdown-content ul,
 .markdown-content ol {
   margin-left: 1.5rem;
