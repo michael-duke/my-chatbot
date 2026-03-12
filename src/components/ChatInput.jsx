@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import dayjs from 'dayjs'
 
 function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
   const [message, setMessage] = useState("");
@@ -36,7 +37,7 @@ function ChatInput({ setChatMessages, isLoading, setIsLoading }) {
         {
           method: "POST",
           headers: {
-            Authorization: "Bearer hf_YOUR_TOKEN_HERE", // Paste your token here
+            Authorization: `Bearer ${import.meta.env.VITE_HF_TOKEN}`, // Paste your token here
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
