@@ -1,16 +1,35 @@
-# React + Vite
+# 🛰️ Friday Core
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> "Protocol is the difference between a project and a legacy."
 
-Currently, two official plugins are available:
+**Friday Core** is a specialized AI mentoring interface designed for software architects. Built on the modern **React 19 + Vite** stack, it provides high-fidelity technical guidance while maintaining a secure, modular structure.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ System Specifications
 
-## React Compiler
+- **Kernel:** React 19 (Stable)
+- **Interface:** Tailwind CSS v4
+- **Logic Engine:** DeepSeek-V3 (Hugging Face Inference)
+- **State Management:** Modern React Hooks & Context
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏗️ Architecture & Protocols
 
-## Expanding the ESLint configuration
+The project follows a modular "Guardian" architecture to ensure code quality:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🧩 Modular Components
+
+- **`ChatInput`**: Manages the asynchronous pipeline and state for message transmission.
+- **`ChatMessages`**: Handles the message list rendering and auto-scroll integration.
+- **`ChatMessage`**: A presentation-layer component for distinct role rendering.
+
+### ⚓ React 19 Logic
+
+- **`useAutoScroll`**: A custom hook utilizing the latest `useRef` and `useEffect` patterns to manage the viewport without bloating the UI components.
+
+### 🔐 Security & Operations
+
+- **Environment Isolation**: Utilizes Vite's `import.meta.env` to isolate secrets.
+- **Deployment**: Configured for **Netlify** with automatic CI/CD.
+
+---
+
+_Developed by Michael | Toronto, ON_
