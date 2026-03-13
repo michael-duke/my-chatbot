@@ -1,8 +1,12 @@
 import dayjs from "dayjs";
 import ReactMarkdown from "react-markdown";
+import robotIcon from "../assets/robot.png";
+import userIcon from "../assets/user.png";
+import loadingSpinner from "../assets/loading-spinner.gif";
 
 function ChatMessage({ message, sender, timestamp }) {
   const isRobot = sender.includes("robot");
+  const profileImage = isRobot ? robotIcon : userIcon;
   // Format the timestamp using dayjs
   const formattedTime = timestamp ? dayjs(timestamp).format("h:mm A") : "";
   return (
@@ -16,7 +20,11 @@ function ChatMessage({ message, sender, timestamp }) {
             <ReactMarkdown>{message}</ReactMarkdown>
           </div>
         ) : (
-          <img className="chat-loading-gif" src="./loading-spinner.gif" />
+          <img
+            className="chat-loading-gif"
+            src={loadingSpinner}
+            alt="loading-spinner"
+          />
         )}
         {formattedTime && (
           <span
@@ -27,7 +35,7 @@ function ChatMessage({ message, sender, timestamp }) {
         )}
       </div>
 
-      <img className="chat-message-profile" src={`${sender}.png`} />
+      <img className="chat-message-profile" src={profileImage} alt={sender} />
     </div>
   );
 }
