@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import robotIcon from "../assets/robot.png";
 import userIcon from "../assets/user.png";
 import loadingSpinner from "../assets/loading-spinner.gif";
+import './ChatMessage.css'
 
 function ChatMessage({ message, sender, timestamp }) {
   const isRobot = sender.includes("robot");

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import dayjs from "dayjs";
+import './ChatInput.css';
 
 function ChatInput({ chatMessages, setChatMessages, isLoading, setIsLoading }) {
   const [message, setMessage] = useState("");

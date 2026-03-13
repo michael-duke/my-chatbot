@@ -1,5 +1,6 @@
 import ChatMessage from "./ChatMessage";
 import { useAutoScroll } from "../hooks/useAutoScroll";
+import './ChatMessages.css'
 
 function ChatMessages({ chatMessages, isLoading }) {
   const chatMessagesRef = useAutoScroll(chatMessages);
